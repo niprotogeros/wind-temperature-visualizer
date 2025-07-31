@@ -1,0 +1,75 @@
+
+# Development dependencies for wind-temperature-visualizer
+
+# Testing
+pytest>=6.0.0
+pytest-cov>=2.12.0
+pytest-mock>=3.6.0
+pytest-xdist>=2.3.0
+
+# Code formatting and linting
+black>=22.0.0
+isort>=5.10.0
+flake8>=4.0.0
+flake8-docstrings>=1.6.0
+flake8-import-order>=0.18.0
+flake8-bugbear>=22.0.0
+
+# Type checking
+mypy>=0.900
+types-requests>=2.25.0
+
+# Pre-commit hooks
+pre-commit>=2.15.0
+
+# Documentation
+sphinx>=4.0.0
+sphinx-rtd-theme>=1.0.0
+myst-parser>=0.15.0
+
+# Security scanning
+bandit>=1.7.0
+safety>=1.10.0
+
+# Performance profiling
+py-spy>=0.3.0
+memory-profiler>=0.60.0
+
+# Jupyter notebooks (for data analysis and examples)
+jupyter>=1.0.0
+notebook>=6.4.0
+ipykernel>=6.0.0
+
+# Development utilities
+python-dotenv>=0.19.0
+watchdog>=2.1.0
+rich>=10.0.0
+
+# Build tools
+build>=0.7.0
+twine>=3.4.0
+wheel>=0.37.0
+
+# Git hooks and utilities
+gitpython>=3.1.0
+pre-commit-hooks>=4.0.0
+
+# HTTP testing (for API endpoints if added)
+httpx>=0.23.0
+requests-mock>=1.9.0
+
+# Data validation and testing
+hypothesis>=6.0.0
+faker>=13.0.0
+
+# Coverage reporting
+coverage[toml]>=6.0.0
+codecov>=2.1.0
+
+# Linting for YAML, JSON, and other files
+yamllint>=1.26.0
+jsonschema>=3.2.0
+
+# Development server utilities
+uvicorn>=0.15.0  # In case we add FastAPI endpoints
+gunicorn>=20.1.0  # For production deployment testing
