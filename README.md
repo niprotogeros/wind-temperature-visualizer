@@ -1,234 +1,137 @@
 
-# Contributing to Wind Temperature Visualizer
+# Wind Temperature Visualizer
 
-Thank you for your interest in contributing to the Wind Temperature Visualizer project! This document provides guidelines and information for contributors.
+A Streamlit-based web application for visualizing wind and temperature data from EPW (EnergyPlus Weather) files. This tool provides interactive charts and analysis for weather data visualization and analysis.
 
-## Table of Contents
+## Features
 
-- [Getting Started](#getting-started)
-- [Development Setup](#development-setup)
-- [Making Changes](#making-changes)
-- [Testing](#testing)
-- [Code Style](#code-style)
-- [Submitting Changes](#submitting-changes)
-- [Reporting Issues](#reporting-issues)
+- Interactive wind and temperature data visualization
+- Support for EPW weather file format
+- Real-time data filtering and analysis
+- Responsive web interface built with Streamlit
+- Comprehensive weather data insights
+- Advanced axis configuration and customization
+- Wind adjustment and comfort analysis tools
+- Statistical analysis and data export capabilities
+- Customizable marker colors and chart styling
 
-## Getting Started
+## Screenshots
+
+### Main Dashboard
+![Main Dashboard](screenshots/main_dashboard.png)
+*The main application interface showing the comprehensive weather data visualization dashboard with interactive charts and controls.*
+
+### Interface Overview
+![Interface Overview](screenshots/interface_overview.png)
+*Complete overview of the application interface showcasing the layout and organization of various analysis tools.*
+
+### Data Controls
+![Data Controls](screenshots/data_controls.png)
+*Advanced data control panel allowing users to filter, manipulate, and customize their weather data analysis.*
+
+### Axis Configuration
+![Axis Configuration](screenshots/axis_configuration.png)
+*Detailed axis configuration options for customizing chart displays and data representation.*
+
+### Wind Adjustment Panel
+![Wind Adjustment Panel](screenshots/wind_adjustment_panel.png)
+*Specialized wind data adjustment tools for fine-tuning wind speed and direction analysis.*
+
+### Comfort Analysis
+![Comfort Analysis](screenshots/comfort_analysis.png)
+*Thermal comfort analysis features providing insights into human comfort conditions based on weather data.*
+
+### General Settings
+![General Settings](screenshots/general_settings.png)
+*General application settings and configuration options for customizing the user experience.*
+
+### Statistics Panel
+![Statistics Panel](screenshots/statistics_panel.png)
+*Comprehensive statistical analysis panel showing detailed metrics and calculations for weather data.*
+
+### Marker Color Options
+![Marker Color Options](screenshots/marker_color_options.png)
+*Customizable marker color settings for enhanced data visualization and chart aesthetics.*
+
+### Chart Export Features
+![Chart Export Features](screenshots/chart_export_features.png)
+*Professional chart export capabilities allowing users to save and share their visualizations in various formats.*
+
+## Installation
 
 ### Prerequisites
 
 - Python 3.7 or higher
-- Git
-- Docker (optional, for containerized development)
+- pip package manager
 
-### Fork and Clone
+### Setup Instructions
 
-1. Fork the repository on GitHub
-2. Clone your fork locally:
-   ```bash
-   git clone https://github.com/yourusername/wind-temperature-visualizer.git
-   cd wind-temperature-visualizer
-   ```
-
-## Development Setup
-
-### Local Development
-
-1. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/wind-temperature-visualizer.git
+cd wind-temperature-visualizer
+```
 
 2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   pip install -r requirements-dev.txt
-   ```
-
-3. Install pre-commit hooks:
-   ```bash
-   pre-commit install
-   ```
-
-4. Run the application:
-   ```bash
-   streamlit run src/wind_temp_visualizer.py
-   ```
-
-### Docker Development
-
-1. Build and run with Docker Compose:
-   ```bash
-   # For development with hot reload
-   docker-compose --profile dev up wind-temp-visualizer-dev
-   
-   # For production-like environment
-   docker-compose up wind-temp-visualizer
-   ```
-
-2. Access the application at `http://localhost:8501` (or `8502` for dev)
-
-## Making Changes
-
-### Branch Naming
-
-Use descriptive branch names:
-- `feature/add-new-chart-type`
-- `bugfix/fix-temperature-calculation`
-- `docs/update-installation-guide`
-
-### Commit Messages
-
-Follow conventional commit format:
-- `feat: add wind rose visualization`
-- `fix: correct temperature unit conversion`
-- `docs: update README with Docker instructions`
-- `test: add unit tests for data processing`
-
-## Testing
-
-### Running Tests
-
 ```bash
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=src --cov-report=html
-
-# Run specific test file
-pytest tests/test_data_processing.py
+pip install -r requirements.txt
 ```
 
-### Writing Tests
-
-- Place tests in the `tests/` directory
-- Use descriptive test names
-- Test both happy path and edge cases
-- Mock external dependencies when appropriate
-
-## Code Style
-
-We use several tools to maintain code quality:
-
-### Formatting
-
+3. Run the application:
 ```bash
-# Format code with Black
-black src/ tests/
-
-# Sort imports with isort
-isort src/ tests/
+streamlit run src/wind_temp_visualizer.py
 ```
 
-### Linting
+## Usage
 
-```bash
-# Check code style with flake8
-flake8 src/ tests/
+1. Launch the application using the command above
+2. Upload your EPW weather data file
+3. Explore the interactive visualizations
+4. Filter and analyze the data as needed
+5. Customize charts using the advanced configuration options
+6. Export your analysis and visualizations
 
-# Type checking with mypy
-mypy src/
+## File Structure
+
+```
+wind-temperature-visualizer/
+├── src/                    # Source code
+├── scripts/               # Installation and utility scripts
+├── docs/                  # Documentation
+├── examples/              # Sample EPW files and usage examples
+├── tests/                 # Test files
+├── screenshots/           # Application screenshots and interface examples
+├── requirements.txt       # Python dependencies
+├── .gitignore            # Git ignore rules
+├── LICENSE               # MIT License
+├── FEATURES.md           # Detailed feature documentation
+└── README.md             # This file
 ```
 
-### Pre-commit Hooks
+## Dependencies
 
-Pre-commit hooks will automatically run these tools before each commit. To run manually:
+- streamlit: Web application framework
+- pandas: Data manipulation and analysis
+- plotly: Interactive plotting library
+- pvlib: Solar position and irradiance modeling
+- numpy: Numerical computing
 
-```bash
-pre-commit run --all-files
-```
+## Contributing
 
-## Submitting Changes
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### Pull Request Process
+## License
 
-1. Ensure your code follows the style guidelines
-2. Add or update tests as needed
-3. Update documentation if necessary
-4. Ensure all tests pass
-5. Create a pull request with:
-   - Clear title and description
-   - Reference to related issues
-   - Screenshots for UI changes
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Pull Request Template
+## Acknowledgements
 
-```markdown
-## Description
-Brief description of changes
+This project was developed with assistance from:
+- **Google Gemini 2.5 Pro** - Advanced AI assistance for application architecture and feature development
+- **OpenAI ChatGPT o3** - AI-powered code optimization and documentation enhancement
 
-## Type of Change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Documentation update
-- [ ] Performance improvement
+Special thanks to the AI development community for providing powerful tools that enable rapid prototyping and professional application development.
 
-## Testing
-- [ ] Tests pass locally
-- [ ] Added new tests for changes
-- [ ] Manual testing completed
+## Support
 
-## Screenshots (if applicable)
-Add screenshots for UI changes
-```
-
-## Reporting Issues
-
-### Bug Reports
-
-When reporting bugs, please include:
-- Python version
-- Operating system
-- Steps to reproduce
-- Expected vs actual behavior
-- Error messages or logs
-- Sample EPW file (if relevant)
-
-### Feature Requests
-
-For feature requests, please provide:
-- Clear description of the feature
-- Use case or problem it solves
-- Proposed implementation (if any)
-- Examples or mockups (if applicable)
-
-## Development Guidelines
-
-### Code Organization
-
-- Keep functions small and focused
-- Use meaningful variable and function names
-- Add docstrings for public functions
-- Separate concerns (data processing, visualization, UI)
-
-### Performance Considerations
-
-- Profile code for large datasets
-- Use efficient pandas operations
-- Consider memory usage for large EPW files
-- Implement caching where appropriate
-
-### Accessibility
-
-- Ensure visualizations are colorblind-friendly
-- Provide alternative text for charts
-- Use semantic HTML elements
-- Test with screen readers when possible
-
-## Getting Help
-
-- Check existing issues and documentation
-- Ask questions in GitHub Discussions
-- Join our community chat (if available)
-- Contact maintainers for urgent issues
-
-## Recognition
-
-Contributors will be recognized in:
-- CHANGELOG.md for significant contributions
-- README.md contributors section
-- GitHub contributors page
-
-Thank you for contributing to Wind Temperature Visualizer!
+If you encounter any issues or have questions, please open an issue on GitHub.
