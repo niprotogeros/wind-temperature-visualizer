@@ -1,47 +1,73 @@
 
-version: '3.8'
+@echo off
+REM =============================================================================
+REM Wind Temperature Visualizer - Windows Launch Script
+REM =============================================================================
+REM This script activates the virtual environment and launches the Streamlit app
+REM Usage: Double-click this file or run from command prompt
+REM =============================================================================
 
-services:
-  wind-temp-visualizer:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: wind-temp-visualizer
-    ports:
-      - "8501:8501"
-    volumes:
-      # Mount source code for development (optional)
-      - ./src:/app/src:ro
-      # Mount data directory for EPW files
-      - ./data:/app/data:ro
-    environment:
-      - STREAMLIT_SERVER_PORT=8501
-      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
-      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
+echo.
+echo ========================================
+echo Wind Temperature Visualizer
+echo ========================================
+echo.
 
-  # Optional: Add a development service with hot reload
-  wind-temp-visualizer-dev:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: wind-temp-visualizer-dev
-    ports:
-      - "8502:8501"
-    volumes:
-      - ./src:/app/src
-      - ./data:/app/data
-    environment:
-      - STREAMLIT_SERVER_PORT=8501
-      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
-      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
-      - STREAMLIT_SERVER_RUN_ON_SAVE=true
-    command: ["streamlit", "run", "src/wind_temp_visualizer.py", "--server.address", "0.0.0.0", "--server.port", "8501", "--server.runOnSave", "true"]
-    profiles:
-      - dev
+REM Change to project root directory
+cd /d "%~dp0.."
+if errorlevel 1 (
+    echo ERROR: Failed to change to project directory
+    pause
+    exit /b 1
+)
+
+REM Check if virtual environment exists
+if not exist venv\Scripts\activate.bat (
+    echo ERROR: Virtual environment not found!
+    echo Please run install.bat first to set up the environment
+    echo.
+    pause
+    exit /b 1
+)
+
+REM Activate virtual environment
+echo Activating virtual environment...
+call venv\Scripts\activate.bat
+if errorlevel 1 (
+    echo ERROR: Failed to activate virtual environment
+    pause
+    exit /b 1
+)
+
+REM Check if main application file exists
+if exist app\main.py (
+    set APP_FILE=app\main.py
+) else if exist Wind_Temp_visualizer.py (
+    set APP_FILE=Wind_Temp_visualizer.py
+) else if exist main.py (
+    set APP_FILE=main.py
+) else (
+    echo ERROR: Could not find the main application file
+    echo Looking for: app\main.py, Wind_Temp_visualizer.py, or main.py
+    pause
+    exit /b 1
+)
+
+echo.
+echo Starting Wind Temperature Visualizer...
+echo Application file: %APP_FILE%
+echo.
+echo The application will open in your default web browser
+echo Press Ctrl+C to stop the application
+echo.
+
+REM Run the Streamlit application
+streamlit run %APP_FILE%
+
+REM Keep window open if there's an error
+if errorlevel 1 (
+    echo.
+    echo ERROR: Application failed to start
+    echo Check the error messages above
+    pause
+)

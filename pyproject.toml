@@ -1,137 +1,75 @@
 
-[build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
-build-backend = "setuptools.build_meta"
+# Development dependencies for wind-temperature-visualizer
 
-[project]
-name = "wind-temperature-visualizer"
-version = "0.1.0"
-description = "A Streamlit application for visualizing wind speed vs temperature from EPW weather data files"
-readme = "README.md"
-license = {text = "MIT"}
-authors = [
-    {name = "Wind Temperature Visualizer Team"},
-]
-maintainers = [
-    {name = "Wind Temperature Visualizer Team"},
-]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Science/Research",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Topic :: Scientific/Engineering :: Atmospheric Science",
-    "Topic :: Scientific/Engineering :: Visualization",
-]
-keywords = ["weather", "visualization", "streamlit", "epw", "wind", "temperature"]
-dependencies = [
-    "streamlit",
-    "pandas",
-    "plotly",
-    "pvlib",
-    "numpy",
-]
-requires-python = ">=3.7"
+# Testing
+pytest>=6.0.0
+pytest-cov>=2.12.0
+pytest-mock>=3.6.0
+pytest-xdist>=2.3.0
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=6.0",
-    "pytest-cov>=2.0",
-    "black>=22.0",
-    "flake8>=4.0",
-    "isort>=5.0",
-    "pre-commit>=2.0",
-    "mypy>=0.900",
-]
+# Code formatting and linting
+black>=22.0.0
+isort>=5.10.0
+flake8>=4.0.0
+flake8-docstrings>=1.6.0
+flake8-import-order>=0.18.0
+flake8-bugbear>=22.0.0
 
-[project.urls]
-Homepage = "https://github.com/yourusername/wind-temperature-visualizer"
-Documentation = "https://github.com/yourusername/wind-temperature-visualizer/blob/main/README.md"
-Repository = "https://github.com/yourusername/wind-temperature-visualizer"
-"Bug Tracker" = "https://github.com/yourusername/wind-temperature-visualizer/issues"
+# Type checking
+mypy>=0.900
+types-requests>=2.25.0
 
-[project.scripts]
-wind-temp-visualizer = "wind_temp_visualizer:main"
+# Pre-commit hooks
+pre-commit>=2.15.0
 
-[tool.setuptools]
-package-dir = {"" = "src"}
+# Documentation
+sphinx>=4.0.0
+sphinx-rtd-theme>=1.0.0
+myst-parser>=0.15.0
 
-[tool.setuptools.packages.find]
-where = ["src"]
+# Security scanning
+bandit>=1.7.0
+safety>=1.10.0
 
-[tool.black]
-line-length = 88
-target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
-include = '\.pyi?$'
-extend-exclude = '''
-/(
-  # directories
-  \.eggs
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | build
-  | dist
-)/
-'''
+# Performance profiling
+py-spy>=0.3.0
+memory-profiler>=0.60.0
 
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-line_length = 88
-known_first_party = ["wind_temp_visualizer"]
+# Jupyter notebooks (for data analysis and examples)
+jupyter>=1.0.0
+notebook>=6.4.0
+ipykernel>=6.0.0
 
-[tool.flake8]
-max-line-length = 88
-extend-ignore = ["E203", "W503"]
-exclude = [".git", "__pycache__", "build", "dist", ".eggs"]
+# Development utilities
+python-dotenv>=0.19.0
+watchdog>=2.1.0
+rich>=10.0.0
 
-[tool.mypy]
-python_version = "3.7"
-warn_return_any = true
-warn_unused_configs = true
-disallow_untyped_defs = true
-disallow_incomplete_defs = true
-check_untyped_defs = true
-disallow_untyped_decorators = true
-no_implicit_optional = true
-warn_redundant_casts = true
-warn_unused_ignores = true
-warn_no_return = true
-warn_unreachable = true
-strict_equality = true
+# Build tools
+build>=0.7.0
+twine>=3.4.0
+wheel>=0.37.0
 
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "-ra -q --strict-markers --strict-config"
-testpaths = ["tests"]
-python_files = ["test_*.py", "*_test.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
+# Git hooks and utilities
+gitpython>=3.1.0
+pre-commit-hooks>=4.0.0
 
-[tool.coverage.run]
-source = ["src"]
-omit = ["*/tests/*", "*/test_*"]
+# HTTP testing (for API endpoints if added)
+httpx>=0.23.0
+requests-mock>=1.9.0
 
-[tool.coverage.report]
-exclude_lines = [
-    "pragma: no cover",
-    "def __repr__",
-    "if self.debug:",
-    "if settings.DEBUG",
-    "raise AssertionError",
-    "raise NotImplementedError",
-    "if 0:",
-    "if __name__ == .__main__.:",
-    "class .*\\bProtocol\\):",
-    "@(abc\\.)?abstractmethod",
-]
+# Data validation and testing
+hypothesis>=6.0.0
+faker>=13.0.0
+
+# Coverage reporting
+coverage[toml]>=6.0.0
+codecov>=2.1.0
+
+# Linting for YAML, JSON, and other files
+yamllint>=1.26.0
+jsonschema>=3.2.0
+
+# Development server utilities
+uvicorn>=0.15.0  # In case we add FastAPI endpoints
+gunicorn>=20.1.0  # For production deployment testing
