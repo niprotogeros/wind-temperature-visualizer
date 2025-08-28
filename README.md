@@ -36,26 +36,32 @@ A Streamlit-based web application for visualizing wind and temperature data from
 
 ### Wind Adjustment Panel
 ![Wind Adjustment Panel](screenshots/wind_adjustment_panel.png)
+
 *Specialized wind data adjustment tools for fine-tuning wind speed and direction analysis.*
 
 ### Comfort Analysis
 ![Comfort Analysis](screenshots/comfort_analysis.png)
+
 *Thermal comfort analysis features providing insights into human comfort conditions based on weather data.*
 
 ### General Settings
 ![General Settings](screenshots/general_settings.png)
+
 *General application settings and configuration options for customizing the user experience.*
 
 ### Statistics Panel
 ![Statistics Panel](screenshots/statistics_panel.png)
+
 *Comprehensive statistical analysis panel showing detailed metrics and calculations for weather data.*
 
 ### Marker Color Options
 ![Marker Color Options](screenshots/marker_color_options.png)
+
 *Customizable marker color settings for enhanced data visualization and chart aesthetics.*
 
 ### Chart Export Features
 ![Chart Export Features](screenshots/chart_export_features.png)
+
 *Professional chart export capabilities allowing users to save and share their visualizations in various formats.*
 
 ## Installation
