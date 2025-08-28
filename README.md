@@ -31,6 +31,7 @@ A Streamlit-based web application for visualizing wind and temperature data from
 
 ### Axis Configuration
 ![Axis Configuration](screenshots/axis_configuration.png)
+
 *Detailed axis configuration options for customizing chart displays and data representation.*
 
 ### Wind Adjustment Panel
